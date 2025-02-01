@@ -9,11 +9,11 @@ semester: spring 25
 
 ## Slack Screenshot
 
-![alt text](Slack-1.png)
+![alt text](Slack.png)
 
 ## Github Screenshot
 
-![alt text](github-1.png)
+![alt text](github.png)
 
 ## Acknowledgements
 * By submitting this assignment I [Your full name here] acknowledge that I have read the syllabus an final project description
