@@ -1,0 +1,11 @@
+pwd
+cd
+cd /
+cd user/share/themes
+cd ../ ../
+ls -A ~
+cd; ls -tx your github-respository/
+ls -rR ~/your-cis106-directory/
+ls -lh ~
+ls -lgG -full-time ~
+
