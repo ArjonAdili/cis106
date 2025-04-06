@@ -96,7 +96,7 @@
 * display file type without filename
 * `file` `-b` `filename`
 * to display type information
-* `file` `-i` `fileman`
+* `file` `-i` `filename`
   
 
 
