@@ -1,5 +1,7 @@
-| Name       | Course | Semester | Instructor|
+
+| Name       | Course | Semester | Instructor |
 | Arjon Adili| CIS-106| Spring 25| R.Alberto |
+
 
 
 # Deliverable 1
