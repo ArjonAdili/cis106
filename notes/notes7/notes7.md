@@ -24,89 +24,140 @@
 * `tac todo.md `
 * Display the content of the file using absolute path
 * `tac ~/Documents/todo.md`
-* 
+* reverse a files contents line by line
+* `tac filename.txt`
+ 
 
-
-## Absolute path
+## head
 * **Definition**
-* the location of a file starting the root of the file system.
+* prints the first 10 lines of a file or more
 * **Usage**
-*  `$path` + `$Home`
+* `head + option + file(s)`
 * **Example**
-* `cd /home/user/Documents`
-* `/home/arjon-adili/Downloads/cat.jpeg`
-* `/home/user/documents`
+* Display the first 10 lines of a file
+* `head ~/Documents/Books/dracula.txt`
+* Display the first 5 lines of a file
+* `head -5 ~/Documents/Book/dracula.txt`
+* Display first lines of many files using wildcards
+* `head -n 1 *.csv *.py`
+* Display the given number of lines of the output of a given command
+* `ls -1 ~/cis106/ | head -n 2`
+* Display the name of a file in the output
+* `head -v -n 7 ~/Documents/Books/dracula.txt`
+* Display a given number of bytes instead of lines
+* `head -c 50 ~/Documents/Books/dracula.txt`
 
 
-## Relative path
+## tail
 * **Definition** 
-* Location of a file starting from the current directory 
+* Prints the last 10 lines of a file
 * **Usage**
-* `Path`
+* `tail + option + file`
 * **Example**
-* Downloads/song.mp3
-* `cd ../..`
-* `cd ../Projects`
-* `ls ../Projects`
-
-
-
-
-
-## parent directory
+* Display the last 10 lines of a file
+* `tail ~/Documents/Book/dracula.txt`
+* Display the last 5 lines of a file
+* `tail -5 ~/Documents/Book/dracula.txt`
+* Display the last lines using wildcard
+* `tail -n 1 *.csv *.py`
+* Display a given number of lines of the output of a given command
+* `ls -1 ~/cis106/ | tail -n 2`
+* Display the name of a file in the output
+* `tail -v -n 7 ~/Documents/Books/dracula.txt`
+* Display a given number of bytes instead of lines
+* `tail -c 50 ~/Documents/Books/dracula.txt`
+  
+## cut
 * **Definition**
-* a directory containing one or more directories and files
+*  used to extract specific section of each line of a file and display it on the screen
 * **Usage** 
-* `echo` + `cd` + `ls`
+* `cut + option + files(s)`
 * **Example**
-* `cd "/home/user"`
-* `cd ..`
-* `ls ../../`
+* Display a list of all the users in your system
+* `cut -d ';' -f1 /etc/passwd`
+* Display the list of all users in your system with their login shell
+* `cut -d ';' -f1 /etc/passwd`
+* cut a range of bytes per line 
+* `cut -b 1-5 usernames.txt`
+* cut a file using a delimiter but changing the delimiter in the output
+* `cut -d ';' -f1,7 --output-delimiter=' => ' /etc/passwd`
+* cut the permissions from the output of ls
+* `ls -1 | cut -d ' ' --complement -s -f1`
 
+## sort
+* **Definition**
+* the sort command is used for sorting files
+* **Usage**
+* `sort + option + file`
+* **Example**
+* Sort a file
+* `sort users.list`
+* Sort a file and save the output to a new file
+* `sort -o sorted.lst users.lst`
+* Sort a file in reverse order
+* `sort -r users.txt`
+* Sort a file in column number
+* `sort --k 2 users.txt`
+
+## wc
+* **Definition**
+*  the wc command is used for printing the number of lines, characters and bytes in a file
+* **Usage**
+* `ec + option + file(s)`
+* **Example**
+* display the number of characters in a file
+* `wc -m users.txt`
+* Display the number of lines in a file
+* `wc -l users.txt`
+* Display the number of words in a file
+* `wc -w users.txt`
   
-
-
-## child directory or subdirectory
+## tr
 * **Definition**
-* A directory inside another directory
+* used for translating or deleting characters from the standard output
 * **Usage**
-* `Directory`
+* `standard output | tr + option + set + set`
 * **Example**
-* `cd subdirectory_name`
-* `cd /home/user/Documents/subdirectory_name`
-* `ls -R`
-
+* Translate a period to a comma
+* `cat file.txt | tr n'.' ','`
+* Translate white space into tabs
+* `cat program.py | tr "[:space:]" '/t/` 
+* Translate labs into space
+* `cat program.py | tr -s "[:space:]" ' '`
   
-
-
-## Bash special characters
+## diff 
 * **Definition**
-* Special characters are function like commands that tell the shell to perform a specific action 
+* compares files and displays the differences between them
 * **Usage**
-* `Bash`
+* `diff + option + file1 + file2`
 * **Example**
-* `/`
-* `.`
-* `..`
+*  Display the difference between two files
+*  `diff cars.csv cars-backup.csv`
+*  Display the difference between two files in a column
+*  `diff -y cars.csv cars-backup.csv`
 
-
-## environment variables
+## grep
 * **Definition**
-* stores values of users environment and can be used in shell commands
+* grep is used to search text in given files and works line by line
 * **Usage**
-* `$path` + `$Home`
+* `grep + option + search criteria +file(s)`
 * **Example**
-* `echo $USER`
-* `printenv`
-* `$Home`
+*  search any line that contains the word dracula
+*  `grep 'dracula' ~/Documents/dracula.txt`
+* search any word regardless of the case
+* `grep -i`
+* remove this word from search
+* `grep -v`
+* display line number for every line matched
+* `grep -n`
+* search and display the word which matches
+* `grep -o`
 
+# -E
+* Used to display $ sign at the end of every line
+  
+# -d 
+*specifies the delimiter to use
 
-## user defined variables
-* **Definition**
-* User-defined variables are variables that are created by the user within a Bash script or on the command line
-* **Usage**
-* `User` + `echo`
-* **Example**
-*  `#echo "My shell is: $SHELL"\`
-*  `#echo "My home is: $HOME"`
-*  `#echo "My name is:"`
+# -f1 + a number 
+* specifies that for every line in /etc/passwd the first and seventh field should be cut
