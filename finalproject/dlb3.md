@@ -28,6 +28,7 @@ To install Ubuntu Server you will need to search for Ubuntu.com on your website 
 * After following those steps correctly Apache will be installed on your system
 ****
 
+
 * Step 4 Setting up the firewall
 * To set up the firewall you must ensure that the ufw command is installed and enabled to do this use `sudo ufw status`
 * If not installed use the command `sudo apt install ufw`
